@@ -45,7 +45,7 @@ public class ProblemSolving {
     }
 
     for (String word :words){
-      if (word.equals("")){
+      if (word.equals("") || word.equals(" ")){
         return true;
       }
     }

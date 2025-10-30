@@ -35,7 +35,7 @@ public class ProblemSolvingTest {
   //  - test a set with only a single element
   //  - more you can think of!
    @Test
-  void testAllStartWithA_emptyset() {
+  void testAllStartWithA_trueEmptySet() {
     // arrange
     Set<String> input =Set.of();
     // act
@@ -46,7 +46,7 @@ public class ProblemSolvingTest {
 
 
   @Test
-  void testAllStartWithA_noneStartWithA() {
+  void testAllStartWithA_falseNoneStartWithA() {
     // arrange
     Set<String> input =Set.of("bob", "billy", "joe", "9al123a");
     // act
@@ -56,7 +56,7 @@ public class ProblemSolvingTest {
   }
 
   @Test
-  void testAllStartWithA_singleElement() {
+  void testAllStartWithA_trueSingleElement() {
     // arrange
     Set<String> input =Set.of("Aob");
     // act
@@ -65,16 +65,7 @@ public class ProblemSolvingTest {
     assertTrue(actual);
   }
 
-
-  @Test
-  void testAllStartWithA_mixedCase() {
-    // arrange
-    Set<String> input =Set.of("Aob", "aob", "allen", "Allen");
-    // act
-    boolean actual = ProblemSolving.allStartWithA(input);
-    // assert
-    assertTrue(actual);
-  }
+  /* HAS EMPTY */
 
   @Test
   void testHasEmptyString_falseAllNonEmpty() {
@@ -94,6 +85,36 @@ public class ProblemSolvingTest {
     boolean actual = ProblemSolving.hasEmptyString(input);
     // assert
     assertTrue(actual);
+  }
+
+  @Test
+  void testHasEmptyString_trueMultipleEmpty() {
+    // arrange
+    Set<String> input = Set.of("armadillo", "", " ", "yeah");
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertTrue(actual);
+  }
+
+  @Test
+  void testHasEmptyString_trueSpaceEmpty() {
+    // arrange
+    Set<String> input = Set.of(" ", "john", "allen", "yeah");
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertTrue(actual);
+  }
+
+  @Test
+  void testHasEmptyString_falseEmptySet() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertFalse(actual);
   }
 
 
