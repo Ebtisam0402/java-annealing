@@ -93,6 +93,6 @@ public class ProblemSolving {
       }
     }
 
-      return shortestWordLength;
+    return shortestWordLength;
   }
 }
