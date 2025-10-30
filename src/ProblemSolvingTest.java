@@ -37,14 +37,44 @@ public class ProblemSolvingTest {
    @Test
   void testAllStartWithA_emptyset() {
     // arrange
-    Set<String> input =Set.of(" ");
+    Set<String> input =Set.of();
     // act
     boolean actual = ProblemSolving.allStartWithA(input);
     // assert
     assertTrue(actual);
   }
 
-  
+
+  @Test
+  void testAllStartWithA_noneStartWithA() {
+    // arrange
+    Set<String> input =Set.of("bob", "billy", "joe", "9al123a");
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertFalse(actual);
+  }
+
+  @Test
+  void testAllStartWithA_singleElement() {
+    // arrange
+    Set<String> input =Set.of("Aob");
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertTrue(actual);
+  }
+
+
+  @Test
+  void testAllStartWithA_mixedCase() {
+    // arrange
+    Set<String> input =Set.of("Aob", "aob", "allen", "Allen");
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertTrue(actual);
+  }
 
   @Test
   void testHasEmptyString_falseAllNonEmpty() {
